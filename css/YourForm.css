@@ -1,0 +1,55 @@
+html{
+	font-size: 62.5%;
+	font-family: "microsoft yahei";
+}
+body{
+	font-family: "microsoft yahei";
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-moz-user-select: none;
+	user-select:none;
+}
+h1{
+	font-size: 3.6rem;
+}
+h2{
+	font-size: 3rem;
+}
+h3{
+	font-size: 2.4rem;
+}
+h4{
+	font-size: 1.8rem;
+}
+h5{
+	font-size: 1.4rem;
+}
+h6{
+	font-size: 1.2rem;
+}
+.clearfix{
+	clear: both;
+	margin-top: 2.8rem;
+}
+.nav-tabs>li>a{
+	font-size: 1.5rem;
+}
+#formtabs{
+	margin-bottom: 20px;
+}
+#buildBox{
+	min-height: 10rem;
+	border: 0.1rem solid #ccc;
+}
+#formtarget{
+	width: 100%;
+	min-height: 10rem;
+}
+.tab-content .form-group,.tab-content .control-label,input,textarea{
+	cursor: pointer;
+}
+#codeBox{
+	overflow-y: auto;
+	cursor: text;
+}
