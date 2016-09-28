@@ -1,0 +1,11 @@
+body{
+  font-family: microsoft yahei;
+  font-size: 62.5%;
+}
+#buildBox{
+  border: 0.1rem solid #ccc;
+  height: 60rem
+}
+.nav-tabs>li>a{
+  font-size: 2rem;
+}
