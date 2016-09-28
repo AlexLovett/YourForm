@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body{
   font-family: microsoft yahei;
   font-size: 62.5%;
@@ -8,4 +9,87 @@ body{
 }
 .nav-tabs>li>a{
   font-size: 2rem;
+}
+html{
+	font-size: 62.5%;
+	font-family: "microsoft yahei";
+}
+body{
+	font-family: "microsoft yahei";
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-moz-user-select: none;
+	user-select:none;
+}
+h1{
+	font-size: 3.6rem;
+}
+h2{
+	font-size: 3rem;
+}
+h3{
+	font-size: 2.4rem;
+}
+h4{
+	font-size: 1.8rem;
+}
+h5{
+	font-size: 1.4rem;
+}
+h6{
+	font-size: 1.2rem;
+}
+label{
+	font-weight: 400;
+	font-size: 1.5rem;
+}
+.container{
+	padding-top: 10rem;
+}
+.part{
+	margin: 3rem 0;
+}
+.part a.btn{
+	margin-bottom: 1rem;
+}
+.tab-content{
+	padding: 0 4rem 5rem 0rem;
+}
+.clearfix{
+	clear: both;
+	margin-top: 2.8rem;
+}
+.nav-tabs>li>a{
+	font-size: 1.5rem;
+}
+#formtabs{
+	margin-bottom: 20px;
+}
+#buildBox{
+	min-height: 10rem;
+	border: 0.1rem solid #ccc;
+	margin-bottom: 10rem;
+	position: relative;
+}
+#formtarget{
+	width: 100%;
+    min-height: 10rem;
+    padding: 1.5rem;
+    padding-bottom: 10rem;
+}
+#setAttrBox{
+	left: auto;
+	width: 25rem;
+}
+.tab-content .form-group,
+.tab-content .control-label,
+input,textarea,
+#formtarget .form-group,
+#formtarget .control-label{
+	cursor: pointer;
+}
+#codeBox{
+	overflow-y: auto;
+	cursor: text;
 }

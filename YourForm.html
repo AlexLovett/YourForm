@@ -1,52 +1,349 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="keyword" content="拖拽式表单生成器，Web Formbuilder">
-    <meta name="description" content="拖拽式表单设计器Formbuild是强大的在线WEB表单设计器，它通常在、OA系统、问卷调查系统、考试系统、等领域发挥着重要作用，你可以在此基础上任意修改使功能无限强大！">
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-    <meta name="author" content="AlexLovett">
-    <title>拖拽式表单生成器</title>
-    <link rel="stylesheet" href="bootstrap/bootstrap.min.css" type="text/css" media="screen" title="no title">
-    <link rel="stylesheet" href="css/YourForm.css" media="screen" type="text/css" title="no title">
-  </head>
-  <body>
-    <div class="container">
-      <div class="row">
-        <!-- Build form -->
-        <div class="col-md-6 col-lg-6">
-          <div class="clearfix">
-            <h2>你的表单</h2>
-            <hr>
-            <div id="buildBox">
-              <form id="formtarget" class="form-horizontal">
-                <!-- form code -->
-              </form>
-            </div>
-          </div>
-        </div>
-        <!-- /Build form -->
 
+	<head>
+		<meta charset="utf-8">
+		<meta name="keyword" content="拖拽式表单生成器，Web Formbuilder">
+		<meta name="description" content="拖拽式表单设计器Formbuild是强大的在线WEB表单设计器，它通常在、OA系统、问卷调查系统、考试系统、等领域发挥着重要作用，你可以在此基础上任意修改使功能无限强大！">
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+		<meta name="author" content="AlexLovett">
+		<title>拖拽式表单生成器</title>
+		<link rel="stylesheet" href="bootstrap/bootstrap.min.css" type="text/css" media="screen" title="no title">
+		<link rel="stylesheet" href="css/YourForm.css" media="screen" type="text/css" title="no title">
+		<link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css" type="text/css" />
+	</head>
 
-        <!-- Components -->
-        <div class="col-md-6 col-lg-6">
-          <h2>拖放组件（将下放的组件拖拽到左边以生成你想要的表单）</h2>
-          <hr>
-          <div class="tabtable">
-            <ul class="nav nav-tabs" id="formtabs">
-              <li class="active"><a href="#" data-toggle="tab">Input</a></li>
-              <li><a href="#" data-toggle="tab">Radio/CheckBox</a></li>
-              <li><a href="#" data-toggle="tab">Select</a></li>
-              <li><a href="#" data-toggle="tab">Button</a></li>
-              <li><a href="#" data-toggle="tab">Codes</a></li>
-            </ul>
-          </div>
-        </div>
-        <!-- /Components -->
-      </div>
-    </div>
-    <script type="text/javascript" src="bootstrap/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/YourForm.core.js"></script>
-  </body>
+	<body>
+		<div class="container">
+			<div class="row">
+				<!-- Build form -->
+				<div class="col-md-6 col-lg-6">
+					<div class="clearfix">
+						<h2>你的表单</h2>
+						<hr>
+						<div id="buildBox">
+							<form id="formtarget" class="form-horizontal">
+								<!-- form code -->
+							</form>
+							<div id="setAttrBox" class="popover fade right in">
+								<div class="arrow"></div>
+								<h4 class="popover-title">输入框属性</h4>
+								<div class="popover-content">
+									<label class="control-label">Name</label>
+									<input class="input-sm form-control" name="defaultIn" id="defaultIn" type="text" />
+									<label class="control-label">Label Text</label>
+									<input class="input-sm form-control" name="labelText" id="labelText" type="text" />
+									<label class="control-label">Placeholder</label>
+									<input class="input-sm form-control" name="placeholder" id="placeholder" type="text" />
+									<label class="control-label">自定义属性(示例：data-action=exmple,多个之间用分号隔开)</label>
+									<input class="input-sm form-control" name="customAttr" id="customAttr" type="text" />
+									<label class="control-label">Input Size</label>
+									<select class="form-control input-sm" id="inputsize">
+									  <option value="input-sm">Small</option>
+									  <option value="">Medium</option>
+									  <option value="input-lg">Large</option>
+									</select>
+									<hr />
+									<button id="save" class="btn btn-info">保存</button>
+									<button id="cancel" class="btn btn-danger">取消</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /Build form -->
+
+				<!-- Components -->
+				<div class="col-md-6 col-lg-6">
+					<h2>拖放组件（将下方的组件拖拽到左边以生成你想要的表单）</h2>
+					<hr>
+					<div class="tabtable">
+						<form class="form-horizontal">
+							<ul class="nav nav-tabs" id="formtabs">
+								<li class="active">
+									<a href="#Input" data-toggle="tab">Input</a>
+								</li>
+								<li>
+									<a href="#Radio" data-toggle="tab">Radio/CheckBox</a>
+								</li>
+								<li>
+									<a href="#Select" data-toggle="tab">Select</a>
+								</li>
+								<li>
+									<a href="#Button" data-toggle="tab">Button</a>
+								</li>
+								<li>
+									<a href="#Codes" data-toggle="tab">Codes</a>
+								</li>
+							</ul>
+							<div class="tab-content">
+								<div class="tab-pane fade active in" id="Input">
+
+									<div class="form-group dragele" draggable="true" id="drag1" data-yf-type="input">
+										<label class="control-label col-md-4 col-sm-4 col-xs-4">普通输入框</label>
+										<div class="control-content col-md-8 col-sm-8 col-xs-8">
+											<input class="form-control" name="input" type="text" placeholder="" />
+										</div>
+									</div>
+
+									<div class="form-group dragele" draggable="true" id="drag2">
+										<label class="control-label col-md-4 col-sm-4 col-xs-4">密码输入框</label>
+										<div class="control-content col-md-8 col-sm-8 col-xs-8">
+											<input class="form-control" name="input" type="password" placeholder="" />
+										</div>
+									</div>
+
+									<div class="form-group dragele" draggable="true" id="drag3">
+										<label class="control-label col-md-4 col-sm-4 col-xs-4">搜索框</label>
+										<div class="control-content col-md-8 col-sm-8 col-xs-8">
+											<div class="input-group">
+												<input class="form-control" name="input" type="text" placeholder="" />
+												<span class="input-group-btn">
+						        					<a href="javascript:void(0);" data-type="search" class="btn btn-default">
+						        						<i class="fa fa-search"></i>
+						        					</a>
+			        							</span>
+											</div>
+										</div>
+									</div>
+
+									<div class="form-group dragele" draggable="true" id="drag4">
+										<label for="" class="control-label col-md-4 col-sm-4 col-xs-4">时间段选择器</label>
+										<div class="control-content col-md-8 col-sm-8 col-xs-8">
+											<div class="input-group input-large data-picker input-daterange" data-date='2016-05-13' data-date-format="yyyy-mm-dd">
+												<input type="text" class="form-control" name="BeginTime" id="BeginTime" data-type="datatime" value data-required="1" />
+												<span class="input-group-addon">至</span>
+												<input type="text" class="form-control" name="EndTime" id="EndTime" data-type="datetime" value data-required="1" />
+											</div>
+										</div>
+									</div>
+
+									<div class="form-group dragele" draggable="true" id="drag5">
+										<label class="control-label col-md-4 col-sm-4 col-xs-4">文本输入框</label>
+										<div class="control-content col-md-8 col-sm-8 col-xs-8">
+											<p class="form-control-static">
+												<textarea name="exmple1" class="form-control" cols="20" rows="5" data-required="1"></textarea>
+											</p>
+										</div>
+									</div>
+
+									<div class="form-group dragele" draggable="true" id="drag6">
+										<label class="control-label col-md-4 col-sm-4 col-xs-4" data-id="Applyer_Show" data-required="1">组织架构弹出框</label>
+										<div class="control-content col-md-8 col-sm-8 col-xs-8">
+											<div class="input-group">
+												<input class="form-control" name="Applyer_Show" type="text" readonly placeholder="" data-required="1" />
+												<span class="input-group-btn" id="Applyer_id">
+						        					<a href="javascript:void(0);" class="btn btn-info">
+						        						<i class="fa fa-user"></i>
+						        					</a>
+			        							</span>
+											</div>
+										</div>
+									</div>
+									
+									<div class="form-group dragele" draggable="true" id="drag7">
+										<label class="control-label col-md-4 col-sm-4 col-xs-4">日期选择器(精确到日期)</label>
+										<div class="control-content col-md-8 col-sm-8 col-xs-8">
+											<div class="input-group  date date-picker" data-date-format="yyyy-mm-dd">
+												<input type="text" class="form-control" name="input" readonly value="">
+												<span class="input-group-btn">
+													<a href="javascript:void(0);" class="btn btn-default">
+														<i class="fa fa-calendar"></i>
+													</a>
+												</span>
+											</div>
+										</div>
+									</div>
+									
+									<div class="form-group dragele" draggable="true" id="drag8">
+										<label class="control-label col-md-4 col-sm-4 col-xs-4">日期选择器(精确到分钟)</label>
+										<div class="control-content col-md-8 col-sm-8 col-xs-8">
+											<div class="input-group date date-picker" data-date-format="yyyy-mm-dd">
+												<input type="text" class="form-control" name="input" readonly value="">
+												<span class="input-group-btn">
+													<a href="javascript:void(0);" class="btn btn-default">
+														<i class="fa fa-calendar"></i>
+													</a>
+												</span>
+											</div>
+										</div>
+									</div>
+									
+								</div>
+
+								<div class="tab-pane fade" id="Radio">
+									<div class="form-group dragele" draggable="true" id="dragR1">
+										<label class="control-label col-md-4 col-sm-4 col-xs-4">单选框</label>
+										<div class="control-content radio-list col-md-8 col-sm-8 col-xs-8">
+											<label class="radio-inline">
+												<input type="radio" name="radio" value="0" checked/>是
+											</label>
+											<label class="radio-inline">
+												<input type="radio" name="radio" value="1"/>否
+											</label>
+										</div>
+									</div>
+									
+									<div class="form-group dragele" draggable="true" id="dragR2">
+										<label class="control-label col-md-4 col-sm-4 col-xs-4">复选框</label>
+										<div class="control-content checkbox-list col-md-8 col-sm-8 col-xs-8">
+											<label class="checkbox-inline">
+												<input type="checkbox" name="checkbox" value="0" checked/>checkbox1
+											</label>
+											<label class="checkbox-inline">
+												<input type="checkbox" name="checkbox" value="1"/>checkbox2
+											</label>
+										</div>
+									</div>
+	
+								</div>
+
+								<div class="tab-pane fade" id="Select">
+									<div class="form-group dragele" draggable="true" id="dragS1">
+										<label class="control-label col-md-4 col-sm-4 col-xs-4">单选下拉框</label>
+										<div class="control-content col-md-8 col-sm-8 col-xs-8">
+											<select name="select" class="bs-select form-control">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+											</select>
+										</div>
+									</div>
+									<div class="form-group dragele" draggable="true" id="dragS2">
+										<label class="control-label col-md-4 col-sm-4 col-xs-4">多选下拉框</label>
+										<div class="control-content  col-sm-8 col-xs-8">
+											<select class="bs-select form-control" multiple>
+												<option>Mustard</option>
+												<option>Ketchup</option>
+												<option>Relish</option>
+											</select>
+										</div>
+									</div>
+								</div>
+
+								<div class="tab-pane fade" id="Button">
+									<div class="part">
+										<h4>Default Bootstrap Buttons</h4>
+										<button type="button" class="btn btn-default dragele" id="dragB1" draggable="true">Default</button>
+										<button type="button" class="btn btn-info dragele" id="dragB2" draggable="true">Info</button>
+										<button type="button" class="btn btn-primary dragele" id="dragB3" draggable="true">Primary</button>
+										<button type="button" class="btn btn-success dragele" id="dragB4" draggable="true">Success</button>
+										<button type="button" class="btn btn-warning dragele" id="dragB5" draggable="true">Warning</button>
+										<button type="button" class="btn btn-danger dragele" id="dragB6" draggable="true">Danger</button>
+									</div>
+									
+									<div class="part">
+										<h4>Default Buttons with Font Awesome Icons</h4>
+										<a href="javascript:void(0);" class="btn btn-default dragele" id="dragB7" draggable="true">
+											<i class="fa fa-check"></i>
+											<span>default</span>
+										</a>
+										<a href="javascript:void(0);" class="btn btn-info dragele" id="dragB8" draggable="true">
+											<i class="fa fa-check"></i>
+											<span>info</span>
+										</a>
+										<a href="javascript:void(0);" class="btn btn-primary dragele" id="dragB9" draggable="true">
+											<i class="fa fa-check"></i>
+											<span>primary</span>
+										</a>
+										<a href="javascript:void(0);" class="btn btn-success dragele" id="dragB10" draggable="true">
+											<i class="fa fa-check"></i>
+											<span>success</span>
+										</a>
+										<a href="javascript:void(0);" class="btn btn-warning dragele" id="dragB11" draggable="true">
+											<i class="fa fa-check"></i>
+											<span >warning</span>
+										</a>
+										<a href="javascript:void(0);" class="btn btn-danger dragele" id="dragB12" draggable="true">
+											<i class="fa fa-check"></i>
+											<span>danger</span>
+										</a>
+									</div>
+									
+									<div class="part">
+										<h4>Dropdowns with Multilevel Submenu</h4>
+										<div class="btn-group dragele"  id="dragB13"draggable="true">
+											<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+												<i class="fa fa-tasks"></i>
+												<span>更多操作</span>
+												<i class="fa fa-angle-down"></i>
+											</button>
+											<ul class="dropdown-menu">
+												<li>
+													<a href="javascript:void(0);">
+														<i class="fa fa-th-list"></i> 
+														<span>example1</span>
+													</a>
+												</li>
+												<li>
+													<a href="javascript:void(0);">
+														<i class="fa fa-th-large"></i> 
+														<span>example2</span>
+													</a>
+												</li>
+												<li>
+													<a href="javascript:void(0);">
+														<i class="fa fa-sitemap"></i> 
+														<span>example3</span>
+													</a>
+												</li>
+											</ul>
+										</div>
+										<div class="btn-group dropup dragele" id="dragB14" draggable="true">
+											<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+												<i class="fa fa-tasks"></i>
+												<span>更多操作</span>
+												<i class="fa fa-angle-up"></i>
+											</button>
+											<ul class="dropdown-menu">
+												<li>
+													<a href="javascript:void(0);">
+														<i class="fa fa-th-list"></i> 
+														<span>example1</span>
+													</a>
+												</li>
+												<li>
+													<a href="javascript:void(0);">
+														<i class="fa fa-th-large"></i> 
+														<span>example2</span>
+													</a>
+												</li>
+												<li>
+													<a href="javascript:void(0);">
+														<i class="fa fa-sitemap"></i> 
+														<span>example3</span>
+													</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								
+								</div>
+									
+								<div class="tab-pane fade" id="Codes">
+									<h4>你的表单呈现此处：</h4>
+									<textarea name="codes" id="codeBox" rows="20" cols="70"></textarea>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+				<!-- /Components -->
+			</div>
+		</div>
+		<div id="temp">
+
+		</div>
+		<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+		<script type="text/javascript" src="bootstrap/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/YourForm.core.js"></script>
+		<script type="text/javascript">
+			window.onload = function() {
+				YourForm.init();
+			}
+		</script>
+	</body>
+
 </html>
