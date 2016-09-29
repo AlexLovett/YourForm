@@ -48,7 +48,25 @@ var YourForm = function(){
 		var data = e.dataTransfer.getData("Text");
 		var origin = document.getElementById(data);
 		var dynamicId = getID();
-		$(origin).before('<div class="form-group" draggable="true" id="'+ dynamicId +'">'+ $(origin).html() +'</div>')
+		var $origin = $(origin);
+		var Type = $origin.attr("data-yf-type");
+		switch(Type){
+			case 'input':
+			$origin.before('<div class="form-group" draggable="true" id="'+ dynamicId +'" data-yf-type="input">'+ $(origin).html() +'</div>');
+			break;
+			case 'radio':
+			$origin.before('<div class="form-group" draggable="true" id="'+ dynamicId +'" data-yf-type="radio">'+ $(origin).html() +'</div>');
+			break;
+			case 'select':
+			$origin.before('<div class="form-group" draggable="true" id="'+ dynamicId +'" data-yf-type="select">'+ $(origin).html() +'</div>');
+			break;
+			case 'button':
+			$origin.before('<button type="button" class="btn btn-default dragele" draggable="true" id="'+ dynamicId +'" data-yf-type="button">'+ $(origin).html() +'</button>');
+			break;
+			case 'iconbutton':
+			$origin.before('<a href="javascript:void(0);" class="btn btn-info dragele" draggable="true" id="'+ dynamicId +'" data-yf-type="iconbutton">'+ $(origin).html() +'</a>');
+			break;
+		}
 		document.getElementById(dynamicId).ondragstart = function(e){
 			drag(e);
 		}
@@ -66,22 +84,23 @@ var YourForm = function(){
 		var $target = $(target);
 		var $setAttrBox = $("#setAttrBox");
 		var _html = '' ;
-		$target.on("click",function(){
+		//为新添加绑定事件
+		$target.off().on("click",function(){
 			var that = $(this);
+			var _this = this;
 			var Type = this.getAttribute("data-yf-type");
 			switch(Type){
 				case 'input':
 				_html = '';
 				$setAttrBox.html();
-				
 				//获取设置属性的框的Top值
-				var Top = this.clientTop + this.clientHeight/2 + 15 - $setAttrBox.height()/2;
+				var Top = _this.offsetTop + _this.clientHeight/2 - $setAttrBox.height()/2;
 				$setAttrBox.css({"top":Top,"right":-$setAttrBox.width()-10}).fadeIn();
-				
 				//保存属性设置
 				$("#save").on("click",function(){
 					//获取属性值
 					var $defaultIn = $("#defaultIn").val();
+					var $defaultId = $("#defaultId").val();
 					var $labelText = $("#labelText").val();
 					var $placeholder = $("#placeholder").val();
 					var $customAttr = $("#customAttr").val();
@@ -90,7 +109,7 @@ var YourForm = function(){
 					var childInput = that.find("input");
 					var customAttrSingle;
 					that.children("label").html($labelText);
-					childInput.attr({"name":$defaultIn,"placeholder":$placeholder});
+					childInput.attr({"name":$defaultIn,"placeholder":$placeholder,"id":$defaultId});
 					for(var i=0;i<$customAttrArr.length;i++){
 						customAttrSingle = $customAttrArr[i].split("=");
 						childInput.attr(customAttrSingle[0],customAttrSingle[1]);
@@ -115,6 +134,9 @@ var YourForm = function(){
 	return{
 		init:function(){
 			initPage();	
+			$("#select2_sample5").select2({
+            	tags: ["red", "green", "blue", "yellow", "pink"]
+       		});
 		}
 	}
 }();

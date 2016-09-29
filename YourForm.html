@@ -30,6 +30,8 @@
 								<div class="arrow"></div>
 								<h4 class="popover-title">输入框属性</h4>
 								<div class="popover-content">
+									<label class="control-label">ID</label>
+									<input class="input-sm form-control" name="defaultId" id="defaultId" type="text" />
 									<label class="control-label">Name</label>
 									<input class="input-sm form-control" name="defaultIn" id="defaultIn" type="text" />
 									<label class="control-label">Label Text</label>
@@ -83,22 +85,22 @@
 									<div class="form-group dragele" draggable="true" id="drag1" data-yf-type="input">
 										<label class="control-label col-md-4 col-sm-4 col-xs-4">普通输入框</label>
 										<div class="control-content col-md-8 col-sm-8 col-xs-8">
-											<input class="form-control" name="input" type="text" placeholder="" />
+											<input class="form-control" name="input" id="" type="text" placeholder="" />
 										</div>
 									</div>
 
-									<div class="form-group dragele" draggable="true" id="drag2">
+									<div class="form-group dragele" draggable="true" id="drag2" data-yf-type="input">
 										<label class="control-label col-md-4 col-sm-4 col-xs-4">密码输入框</label>
 										<div class="control-content col-md-8 col-sm-8 col-xs-8">
-											<input class="form-control" name="input" type="password" placeholder="" />
+											<input class="form-control" name="input" id="" type="password" placeholder="" />
 										</div>
 									</div>
 
-									<div class="form-group dragele" draggable="true" id="drag3">
+									<div class="form-group dragele" draggable="true" id="drag3" data-yf-type="input">
 										<label class="control-label col-md-4 col-sm-4 col-xs-4">搜索框</label>
 										<div class="control-content col-md-8 col-sm-8 col-xs-8">
 											<div class="input-group">
-												<input class="form-control" name="input" type="text" placeholder="" />
+												<input class="form-control" name="input" id="" type="text" placeholder="" />
 												<span class="input-group-btn">
 						        					<a href="javascript:void(0);" data-type="search" class="btn btn-default">
 						        						<i class="fa fa-search"></i>
@@ -108,7 +110,7 @@
 										</div>
 									</div>
 
-									<div class="form-group dragele" draggable="true" id="drag4">
+									<div class="form-group dragele" draggable="true" id="drag4" data-yf-type="input">
 										<label for="" class="control-label col-md-4 col-sm-4 col-xs-4">时间段选择器</label>
 										<div class="control-content col-md-8 col-sm-8 col-xs-8">
 											<div class="input-group input-large data-picker input-daterange" data-date='2016-05-13' data-date-format="yyyy-mm-dd">
@@ -119,16 +121,16 @@
 										</div>
 									</div>
 
-									<div class="form-group dragele" draggable="true" id="drag5">
+									<div class="form-group dragele" draggable="true" id="drag5" data-yf-type="input">
 										<label class="control-label col-md-4 col-sm-4 col-xs-4">文本输入框</label>
 										<div class="control-content col-md-8 col-sm-8 col-xs-8">
 											<p class="form-control-static">
-												<textarea name="exmple1" class="form-control" cols="20" rows="5" data-required="1"></textarea>
+												<textarea name="exmple1" id="" class="form-control" cols="20" rows="5" data-required="1"></textarea>
 											</p>
 										</div>
 									</div>
 
-									<div class="form-group dragele" draggable="true" id="drag6">
+									<div class="form-group dragele" draggable="true" id="drag6" data-yf-type="input">
 										<label class="control-label col-md-4 col-sm-4 col-xs-4" data-id="Applyer_Show" data-required="1">组织架构弹出框</label>
 										<div class="control-content col-md-8 col-sm-8 col-xs-8">
 											<div class="input-group">
@@ -142,11 +144,11 @@
 										</div>
 									</div>
 									
-									<div class="form-group dragele" draggable="true" id="drag7">
+									<div class="form-group dragele" draggable="true" id="drag7" data-yf-type="input">
 										<label class="control-label col-md-4 col-sm-4 col-xs-4">日期选择器(精确到日期)</label>
 										<div class="control-content col-md-8 col-sm-8 col-xs-8">
 											<div class="input-group  date date-picker" data-date-format="yyyy-mm-dd">
-												<input type="text" class="form-control" name="input" readonly value="">
+												<input type="text" class="form-control" id="" name="input" readonly value="">
 												<span class="input-group-btn">
 													<a href="javascript:void(0);" class="btn btn-default">
 														<i class="fa fa-calendar"></i>
@@ -156,11 +158,11 @@
 										</div>
 									</div>
 									
-									<div class="form-group dragele" draggable="true" id="drag8">
+									<div class="form-group dragele" draggable="true" id="drag8" data-yf-type="input">
 										<label class="control-label col-md-4 col-sm-4 col-xs-4">日期选择器(精确到分钟)</label>
 										<div class="control-content col-md-8 col-sm-8 col-xs-8">
 											<div class="input-group date date-picker" data-date-format="yyyy-mm-dd">
-												<input type="text" class="form-control" name="input" readonly value="">
+												<input type="text" class="form-control" id="" name="input" readonly value="">
 												<span class="input-group-btn">
 													<a href="javascript:void(0);" class="btn btn-default">
 														<i class="fa fa-calendar"></i>
@@ -173,7 +175,7 @@
 								</div>
 
 								<div class="tab-pane fade" id="Radio">
-									<div class="form-group dragele" draggable="true" id="dragR1">
+									<div class="form-group dragele" draggable="true" id="dragR1" data-yf-type="radio">
 										<label class="control-label col-md-4 col-sm-4 col-xs-4">单选框</label>
 										<div class="control-content radio-list col-md-8 col-sm-8 col-xs-8">
 											<label class="radio-inline">
@@ -185,7 +187,7 @@
 										</div>
 									</div>
 									
-									<div class="form-group dragele" draggable="true" id="dragR2">
+									<div class="form-group dragele" draggable="true" id="dragR2" data-yf-type="radio">
 										<label class="control-label col-md-4 col-sm-4 col-xs-4">复选框</label>
 										<div class="control-content checkbox-list col-md-8 col-sm-8 col-xs-8">
 											<label class="checkbox-inline">
@@ -200,7 +202,7 @@
 								</div>
 
 								<div class="tab-pane fade" id="Select">
-									<div class="form-group dragele" draggable="true" id="dragS1">
+									<div class="form-group dragele" draggable="true" id="dragS1" data-yf-type="select">
 										<label class="control-label col-md-4 col-sm-4 col-xs-4">单选下拉框</label>
 										<div class="control-content col-md-8 col-sm-8 col-xs-8">
 											<select name="select" class="bs-select form-control">
@@ -211,9 +213,9 @@
 											</select>
 										</div>
 									</div>
-									<div class="form-group dragele" draggable="true" id="dragS2">
+									<div class="form-group dragele" draggable="true" id="dragS2" data-yf-type="select">
 										<label class="control-label col-md-4 col-sm-4 col-xs-4">多选下拉框</label>
-										<div class="control-content  col-sm-8 col-xs-8">
+										<div class="control-content col-md-8 col-sm-8 col-xs-8">
 											<select class="bs-select form-control" multiple>
 												<option>Mustard</option>
 												<option>Ketchup</option>
@@ -221,42 +223,48 @@
 											</select>
 										</div>
 									</div>
+									<div class="form-group">
+										<label class="control-label col-md-4 col-sm-4 col-xs-4">标签式多选框</label>
+										<div class="control-content col-md-8 col-sm-8 col-xs-8">
+											<input type="hidden" id="select2_sample5" class="form-control select2" value="red, blue">
+										</div>
+									</div>
 								</div>
 
 								<div class="tab-pane fade" id="Button">
 									<div class="part">
 										<h4>Default Bootstrap Buttons</h4>
-										<button type="button" class="btn btn-default dragele" id="dragB1" draggable="true">Default</button>
-										<button type="button" class="btn btn-info dragele" id="dragB2" draggable="true">Info</button>
-										<button type="button" class="btn btn-primary dragele" id="dragB3" draggable="true">Primary</button>
-										<button type="button" class="btn btn-success dragele" id="dragB4" draggable="true">Success</button>
-										<button type="button" class="btn btn-warning dragele" id="dragB5" draggable="true">Warning</button>
-										<button type="button" class="btn btn-danger dragele" id="dragB6" draggable="true">Danger</button>
+										<button type="button" class="btn btn-default dragele" id="dragB1" draggable="true" data-yf-type="button">Default</button>
+										<button type="button" class="btn btn-info dragele" id="dragB2" draggable="true" data-yf-type="button">Info</button>
+										<button type="button" class="btn btn-primary dragele" id="dragB3" draggable="true" data-yf-type="button">Primary</button>
+										<button type="button" class="btn btn-success dragele" id="dragB4" draggable="true" data-yf-type="button">Success</button>
+										<button type="button" class="btn btn-warning dragele" id="dragB5" draggable="true" data-yf-type="button">Warning</button>
+										<button type="button" class="btn btn-danger dragele" id="dragB6" draggable="true" data-yf-type="button">Danger</button>
 									</div>
 									
 									<div class="part">
 										<h4>Default Buttons with Font Awesome Icons</h4>
-										<a href="javascript:void(0);" class="btn btn-default dragele" id="dragB7" draggable="true">
+										<a href="javascript:void(0);" class="btn btn-default dragele" id="dragB7" draggable="true" data-yf-type="iconbutton">
 											<i class="fa fa-check"></i>
 											<span>default</span>
 										</a>
-										<a href="javascript:void(0);" class="btn btn-info dragele" id="dragB8" draggable="true">
+										<a href="javascript:void(0);" class="btn btn-info dragele" id="dragB8" draggable="true" data-yf-type="iconbutton">
 											<i class="fa fa-check"></i>
 											<span>info</span>
 										</a>
-										<a href="javascript:void(0);" class="btn btn-primary dragele" id="dragB9" draggable="true">
+										<a href="javascript:void(0);" class="btn btn-primary dragele" id="dragB9" draggable="true" data-yf-type="iconbutton">
 											<i class="fa fa-check"></i>
 											<span>primary</span>
 										</a>
-										<a href="javascript:void(0);" class="btn btn-success dragele" id="dragB10" draggable="true">
+										<a href="javascript:void(0);" class="btn btn-success dragele" id="dragB10" draggable="true" data-yf-type="iconbutton">
 											<i class="fa fa-check"></i>
 											<span>success</span>
 										</a>
-										<a href="javascript:void(0);" class="btn btn-warning dragele" id="dragB11" draggable="true">
+										<a href="javascript:void(0);" class="btn btn-warning dragele" id="dragB11" draggable="true" data-yf-type="iconbutton">
 											<i class="fa fa-check"></i>
 											<span >warning</span>
 										</a>
-										<a href="javascript:void(0);" class="btn btn-danger dragele" id="dragB12" draggable="true">
+										<a href="javascript:void(0);" class="btn btn-danger dragele" id="dragB12" draggable="true" data-yf-type="iconbutton">
 											<i class="fa fa-check"></i>
 											<span>danger</span>
 										</a>
@@ -264,7 +272,7 @@
 									
 									<div class="part">
 										<h4>Dropdowns with Multilevel Submenu</h4>
-										<div class="btn-group dragele"  id="dragB13"draggable="true">
+										<div class="btn-group dragele"  id="dragB13" draggable="true" data-yf-type="dropdowns">
 											<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
 												<i class="fa fa-tasks"></i>
 												<span>更多操作</span>
@@ -291,7 +299,7 @@
 												</li>
 											</ul>
 										</div>
-										<div class="btn-group dropup dragele" id="dragB14" draggable="true">
+										<div class="btn-group dropup dragele" id="dragB14" draggable="true" data-yf-type="dropdowns">
 											<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
 												<i class="fa fa-tasks"></i>
 												<span>更多操作</span>
@@ -338,6 +346,7 @@
 		</div>
 		<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
 		<script type="text/javascript" src="bootstrap/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/select2.min.js"></script>
 		<script type="text/javascript" src="js/YourForm.core.js"></script>
 		<script type="text/javascript">
 			window.onload = function() {
